@@ -1,50 +1,28 @@
-# Panduan Screenshot CI/CD
+# Screenshots untuk Submission Dicoding
 
-Folder ini digunakan untuk menyimpan screenshot bukti CI/CD sesuai ketentuan submission.
+Folder ini berisi screenshot bukti implementasi CI/CD dan branch protection.
 
-## Screenshot yang Diperlukan
+## File yang Diperlukan
 
-### 1. `1_ci_check_error.png`
-Tangkap layar dari GitHub Actions yang menunjukkan CI check GAGAL (merah).
-- Cara mendapatkan: Push commit dengan test yang sengaja gagal ke branch baru, lalu buat PR ke master.
+| File | Keterangan |
+|------|------------|
+| `1_ci_check_error.png` | Screenshot CI gagal (merah) di GitHub Actions |
+| `2_ci_check_pass.png` | Screenshot CI berhasil (hijau) di GitHub Actions |
+| `3_branch_protection.png` | Screenshot branch protection di halaman Pull Request |
 
-### 2. `2_ci_check_pass.png`
-Tangkap layar dari GitHub Actions yang menunjukkan CI check LULUS (hijau).
-- Cara mendapatkan: Setelah semua test lulus, CI akan otomatis hijau pada PR berikutnya.
+## Cara Mengambil Screenshot
 
-### 3. `3_branch_protection.png`
-Tangkap layar dari halaman PR di GitHub yang menunjukkan branch protection aktif.
-- Cara mendapatkan: Aktifkan branch protection di Settings > Branches > Add rule (require status checks to pass).
+### 1_ci_check_error
+- Buka: https://github.com/Rian-Saputera/forum-diskusi/actions
+- Klik salah satu workflow run yang MERAH (failed)
+- Screenshot halaman tersebut
 
-## Langkah Setup CI/CD
+### 2_ci_check_pass
+- Buka: https://github.com/Rian-Saputera/forum-diskusi/actions
+- Klik workflow run yang HIJAU (success)
+- Screenshot halaman tersebut
 
-### 1. Buat Repository GitHub
-```bash
-git init
-git add .
-git commit -m "feat: initial forum diskusi app with testing"
-git remote add origin https://github.com/USERNAME/forum-diskusi.git
-git push -u origin master
-```
-
-### 2. Deploy ke Vercel
-- Buka https://vercel.com
-- Klik "New Project" → Import dari GitHub
-- Pilih repository `forum-diskusi`
-- Vercel otomatis detect `vercel.json` yang sudah ada
-- Klik Deploy
-
-### 3. Aktifkan Branch Protection di GitHub
-- Buka Settings → Branches → Add branch protection rule
-- Branch name pattern: `master`
-- Centang: "Require status checks to pass before merging"
-- Pilih: `CI — Forum Diskusi / Unit & Integration Tests`
-- Save changes
-
-### 4. Cantumkan di Catatan Submission
-```
-URL Vercel: https://forum-diskusi-USERNAME.vercel.app
-```
-
----
-> **PENTING**: Ganti screenshot placeholder di folder ini dengan screenshot asli sebelum submit!
+### 3_branch_protection
+- Buka halaman PR di: https://github.com/Rian-Saputera/forum-diskusi/pulls
+- Scroll ke bawah untuk melihat bagian "All checks must pass"
+- Screenshot bagian tersebut

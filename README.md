@@ -1,78 +1,86 @@
-# Forum Diskusi — React Web Developer Expert
+# Forum Diskusi — Aplikasi Diskusi Forum
 
-Aplikasi Forum Diskusi berbasis React yang dibangun sebagai submission Dicoding kelas **Menjadi React Web Developer Expert**.
+[![CI — Forum Diskusi](https://github.com/Rian-Saputera/forum-diskusi/actions/workflows/ci.yml/badge.svg)](https://github.com/Rian-Saputera/forum-diskusi/actions/workflows/ci.yml)
 
-## 🚀 Live Demo
+Aplikasi forum diskusi berbasis React dengan fitur thread, komentar, voting, dan leaderboard.
 
-> URL Vercel akan ditambahkan setelah deployment
+🌐 **Live Demo**: https://forum-diskusi-gold.vercel.app
 
-## 📦 Tech Stack
+---
 
-- **React 19** + **Vite** — Build tool & framework
-- **Redux Toolkit** — State management
-- **React Router v7** — Client-side routing
-- **React Hot Toast** — Notifikasi
-- **React Icons** — Icon library
-- **Storybook** — Component development & documentation
-- **Vitest** + **React Testing Library** — Unit & Integration testing
-- **Cypress** — End-to-End testing
-- **GitHub Actions** — CI/CD pipeline
-- **Vercel** — Hosting & Continuous Deployment
+## 🛠️ Tech Stack
 
-## ✅ Fitur Utama
+| Kategori | Teknologi |
+|---|---|
+| Frontend | React 19, React Router, Redux Toolkit |
+| Build Tool | Vite |
+| Unit Test | Vitest, React Testing Library |
+| E2E Test | Cypress |
+| CI/CD | GitHub Actions |
+| Deployment | Vercel |
 
-- 🔐 Autentikasi (Login & Register)
-- 📝 Buat, lihat, dan komentari thread diskusi
-- 👍 Upvote / Downvote thread & komentar
-- 🏆 Halaman Leaderboard
-- 🔖 Filter thread berdasarkan kategori
-- 📊 CI/CD dengan GitHub Actions & Vercel
+---
 
-## 🧪 Menjalankan Tests
-
-### Unit & Integration Tests
-```bash
-npm test
-```
-
-### End-to-End Tests (Cypress)
-```bash
-npm run e2e
-```
-
-### Storybook
-```bash
-npm run storybook
-```
-
-## 🛠 Menjalankan Aplikasi
+## 🚀 Cara Menjalankan
 
 ```bash
 # Install dependencies
 npm install --legacy-peer-deps
 
-# Development server
+# Jalankan aplikasi (dev)
 npm run dev
 
-# Production build
+# Build produksi
 npm run build
+
+# Jalankan unit test
+npm test
+
+# Jalankan E2E test
+npm run e2e
 ```
 
-## 📁 Struktur Proyek
+---
 
-```
-src/
-├── api/          # API service layer
-├── components/   # Reusable UI components + stories + tests
-├── hooks/        # Custom React hooks
-├── pages/        # Page-level components
-└── store/        # Redux slices + thunks + tests
-cypress/
-└── e2e/          # End-to-End test scenarios
-```
+## 🧪 Testing
 
-## 🔒 CI/CD
+### Unit & Integration Test (Vitest)
+- **57 test** di 6 file
+- Mencakup: reducer, thunks, komponen React
+- Jalankan: `npm test`
 
-- **Continuous Integration**: GitHub Actions menjalankan ESLint, unit tests, dan Cypress E2E tests pada setiap push.
-- **Continuous Deployment**: Vercel otomatis deploy ke production pada setiap merge ke branch `main`.
-- **Branch Protection**: Branch `main` diproteksi — PR harus lolos semua CI checks sebelum bisa di-merge.
+### E2E Test (Cypress)
+- **4 skenario** login flow dengan `cy.intercept()` untuk mocking API
+- Reliable di CI karena tidak bergantung pada server eksternal
+- Jalankan: `npm run e2e`
+
+---
+
+## ⚙️ CI/CD Pipeline (GitHub Actions)
+
+Pipeline berjalan otomatis pada setiap `push` dan `pull_request`:
+
+1. **Unit & Integration Tests** — ESLint + Vitest (57 tests)
+2. **E2E Tests (Cypress)** — Build + Preview server + Cypress headless
+
+Branch `main` dilindungi dengan branch protection rules:
+- Semua CI checks harus lolos sebelum merge
+- Minimal 1 approving review diperlukan
+
+---
+
+## 📸 Screenshots Submission
+
+Tersedia di folder `screenshots/`:
+- `1_ci_check_error.png` — CI gagal (merah)
+- `2_ci_check_pass.png` — CI berhasil (hijau, 57 unit tests + 4 E2E tests)
+- `3_branch_protection.png` — Branch protection aktif di PR
+
+---
+
+## 🔗 Links
+
+- **Repository**: https://github.com/Rian-Saputera/forum-diskusi
+- **Live App**: https://forum-diskusi-gold.vercel.app
+- **CI/CD Pipeline**: https://github.com/Rian-Saputera/forum-diskusi/actions
+- **API**: https://forum-api.dicoding.dev/v1
