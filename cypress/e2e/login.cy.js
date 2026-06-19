@@ -5,9 +5,10 @@
  *   - Buka halaman /login
  *   - Isi email dan password yang salah
  *   - Klik tombol Masuk
- *   - API mock mengembalikan error 401
- *   - Seharusnya menampilkan pesan error (toast)
+ *   - API mock mengembalikan error 400
+ *   - Seharusnya menampilkan pesan error (toast notification)
  *   - Seharusnya tetap berada di halaman /login
+ *   - cy.clock() digunakan untuk membekukan timer agar toast tidak auto-dismiss
  *
  * Skenario 2 - Login dengan kredensial yang benar:
  *   - Buka halaman /login
@@ -45,6 +46,9 @@ describe('Alur Login Pengguna', () => {
       },
     }).as('loginFailed');
 
+    // Bekukan timer agar toast tidak auto-dismiss selama pengujian
+    cy.clock();
+
     cy.visit('/login');
     cy.get('#input-email').type('salah@email.com');
     cy.get('#input-password').type('passwordsalah');
@@ -55,7 +59,11 @@ describe('Alur Login Pengguna', () => {
     // Harus tetap di halaman login
     cy.url().should('include', '/login');
 
+    // Advance clock 200ms agar React selesai render toast
+    cy.tick(200);
+
     // Toast error harus muncul
+    // react-hot-toast menggunakan role="status" dengan aria-live="polite"
     cy.get('[role="status"]', { timeout: 5000 }).should('exist');
   });
 
