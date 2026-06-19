@@ -1,16 +1,78 @@
-# React + Vite
+# Forum Diskusi — React Web Developer Expert
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplikasi Forum Diskusi berbasis React yang dibangun sebagai submission Dicoding kelas **Menjadi React Web Developer Expert**.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+> URL Vercel akan ditambahkan setelah deployment
 
-## React Compiler
+## 📦 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** + **Vite** — Build tool & framework
+- **Redux Toolkit** — State management
+- **React Router v7** — Client-side routing
+- **React Hot Toast** — Notifikasi
+- **React Icons** — Icon library
+- **Storybook** — Component development & documentation
+- **Vitest** + **React Testing Library** — Unit & Integration testing
+- **Cypress** — End-to-End testing
+- **GitHub Actions** — CI/CD pipeline
+- **Vercel** — Hosting & Continuous Deployment
 
-## Expanding the ESLint configuration
+## ✅ Fitur Utama
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔐 Autentikasi (Login & Register)
+- 📝 Buat, lihat, dan komentari thread diskusi
+- 👍 Upvote / Downvote thread & komentar
+- 🏆 Halaman Leaderboard
+- 🔖 Filter thread berdasarkan kategori
+- 📊 CI/CD dengan GitHub Actions & Vercel
+
+## 🧪 Menjalankan Tests
+
+### Unit & Integration Tests
+```bash
+npm test
+```
+
+### End-to-End Tests (Cypress)
+```bash
+npm run e2e
+```
+
+### Storybook
+```bash
+npm run storybook
+```
+
+## 🛠 Menjalankan Aplikasi
+
+```bash
+# Install dependencies
+npm install --legacy-peer-deps
+
+# Development server
+npm run dev
+
+# Production build
+npm run build
+```
+
+## 📁 Struktur Proyek
+
+```
+src/
+├── api/          # API service layer
+├── components/   # Reusable UI components + stories + tests
+├── hooks/        # Custom React hooks
+├── pages/        # Page-level components
+└── store/        # Redux slices + thunks + tests
+cypress/
+└── e2e/          # End-to-End test scenarios
+```
+
+## 🔒 CI/CD
+
+- **Continuous Integration**: GitHub Actions menjalankan ESLint, unit tests, dan Cypress E2E tests pada setiap push.
+- **Continuous Deployment**: Vercel otomatis deploy ke production pada setiap merge ke branch `main`.
+- **Branch Protection**: Branch `main` diproteksi — PR harus lolos semua CI checks sebelum bisa di-merge.
