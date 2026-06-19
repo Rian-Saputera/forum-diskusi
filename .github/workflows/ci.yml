@@ -48,10 +48,15 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
-      - name: Start dev server & run Cypress
+      - name: Build application
+        run: npm run build
+
+      - name: Start preview server & run Cypress
         uses: cypress-io/github-action@v6
         with:
-          start: npm run dev
-          wait-on: 'http://localhost:5173'
-          wait-on-timeout: 60
+          start: npm run preview
+          wait-on: 'http://localhost:4173'
+          wait-on-timeout: 120
           command: npm run e2e
+        env:
+          CYPRESS_BASE_URL: http://localhost:4173
